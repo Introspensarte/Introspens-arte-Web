@@ -1,0 +1,112 @@
+Crea una aplicación web completa en Node.js y Express, con diseño visual oscuro, elegante y minimalista, inspirado en Carrd, para un proyecto artístico llamado “𝐈𝐧𝐭𝐫𝐨𝐬𝐩𝐞𝐧𝐬/𝒂𝒓𝒕𝒆/”.
+
+Requisitos funcionales:
+	1.	La página principal (”/”) debe mostrar solo dos botones:
+• Registrarse (redirige a /registro.html)
+• Iniciar sesión (redirige a /login.html)
+	2.	Formulario de registro en /registro.html con los siguientes campos:
+• Nombre y Apellido
+• Edad
+• Cumpleaños (dd/mm)
+• Face Claim
+• Firma (con # al inicio)
+• ¿Por qué desea ingresar al proyecto?
+• Link de Facebook
+	3.	Al registrarse, los datos se guardan en una base de datos (db.json o PostgreSQL) bajo la lista usuarios.
+	4.	En /login.html se debe permitir iniciar sesión ingresando la firma. Si coincide con una firma registrada, redirige al portal del usuario (/portal.html).
+	5.	En /portal.html debe mostrarse un menú con enlaces a las siguientes subpáginas:
+• Mi perfil
+• Noticias
+• Avisos
+• Actividades por realizar
+• Sube tu actividad
+• Ranking global (Trazos)
+• Ranking global (Palabras)
+	6.	En la subpágina “Mi perfil”, mostrar:
+• Bienvenida personalizada con nombre del usuario
+• Su firma, edad y link de Facebook
+• Estadísticas personales: total de trazos, total de palabras, total de actividades
+	7.	En la subpágina “Sube tu actividad”, mostrar un formulario con los campos:
+• Nombre de la actividad
+• Fecha
+• Palabras
+• Tipo (Narrativa, Microcuento, Drabble, Hilo, Rol, Otro)
+• Comentarios/Respuestas (para hilos y roles)
+• Link
+• Descripción breve
+Luego calcular automáticamente los trazos según esta lógica:
+
+Tipo Narrativa:
+	•	300 a 499 palabras = 300 trazos
+	•	500 a 999 palabras = 400 trazos
+	•	1000 a 1499 palabras = 500 trazos
+	•	1500 a 1999 palabras = 600 trazos
+
+Tipo Microcuento:
+	•	Menos de 100 palabras = 100 trazos
+
+Tipo Drabble:
+	•	Menos de 150 palabras = 150 trazos
+	•	Menos de 200 palabras = 200 trazos
+
+Tipo Hilo (según respuestas):
+	•	Menos de 5 respuestas = 100 trazos
+	•	Menos de 10 respuestas = 150 trazos
+
+Tipo Rol (según respuestas):
+	•	Menos de 5 respuestas = 250 trazos
+	•	Menos de 10 respuestas = 400 trazos
+	•	Menos de 15 respuestas = 550 trazos
+	•	Menos de 20 respuestas = 700 trazos
+
+Otros tipos:
+	•	Encuesta = 100 trazos
+	•	Collage = 150 trazos
+	•	Poemas = 150 trazos
+	•	Pinturas = 200 trazos
+	•	Interpretación = 200 trazos
+
+	8.	Las actividades deben guardarse en una lista actividades y filtrarse por firma para mostrar el historial.
+	9.	En las subpáginas “Noticias”, “Avisos” y “Actividades por realizar”:
+
+	•	Todos los usuarios pueden ver las publicaciones
+	•	Solo los administradores pueden subir contenido nuevo a estas secciones
+	•	El contenido se extrae desde una propiedad noticias, avisos o actividadesPorRealizar en la base de datos
+
+	10.	En las subpáginas “Ranking global (Trazos)” y “Ranking global (Palabras)”:
+
+	•	Listar todos los usuarios ordenados por trazos totales o palabras totales respectivamente
+	•	Mostrar el nombre, firma, total de trazos o palabras
+	•	Destacar la posición del usuario actual dentro del ranking
+
+	11.	Añadir sistema de roles: usuarios normales y admins.
+
+	•	Solo los admins pueden subir noticias, avisos y actividades por realizar
+	•	El usuario con firma #INELUDIBLE tiene rol admin por defecto
+	•	Este usuario puede asignar o quitar roles de admin a otros usuarios
+
+	12.	Cada usuario tendrá un rango bimestral según su desempeño:
+
+	•	Alma en tránsito – Sin medallas aún
+	•	Voz en boceto – Medalla: “Susurros que germinan”
+	•	Narrador de atmósferas – Medalla: “Excelente narrador”
+	•	Escritor de introspecciones – Medalla: “Lector de huellas”
+	•	Arquitecto del alma – Medalla: “Arquitecto de Personajes”
+El rango depende del total de trazos acumulados o del paso del tiempo dentro del proyecto
+
+	13.	El diseño visual debe estar en /public/style.css e inspirarse en:
+
+	•	Fondo negro o gris muy oscuro
+	•	Tipografía serif elegante (Playfair Display o EB Garamond)
+	•	Colores suaves: blanco, lavanda, gris claro
+	•	Viñetas, transiciones suaves, estética poética
+
+	14.	Todas las páginas HTML van en la carpeta /public.
+	15.	Toda la app debe ejecutarse con node server.js
+
+	•	Incluye package.json
+	•	Backend completo en server.js
+	•	Base de datos simulada en db.json o PostgreSQL si prefieres persistencia real
+	•	Usa fs para leer y escribir si usas JSON
+
+Crea todo el proyecto en una sola ejecución. No dividas el código en varios pasos. No uses respuestas múltiples. Genera todos los archivos y estructuras necesarias directamente.
