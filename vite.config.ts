@@ -1,17 +1,18 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
-import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+import fs from "fs";
 
 // Plugin para copiar el archivo _redirects a dist/public
 const copyRedirects = () => {
   return {
     name: "copy-redirects",
     closeBundle() {
-      const fs = require("fs");
-      const src = path.resolve(__dirname, "client/_redirects");
-      const dest = path.resolve(__dirname, "dist/public/_redirects");
+      const src = path.resolve(__dirname, "_redirects");
+      const dest = path.resolve(__dirname, "../dist/public/_redirects");
+
       if (fs.existsSync(src)) {
+        fs.mkdirSync(path.dirname(dest), { recursive: true });
         fs.copyFileSync(src, dest);
         console.log("✅ Copiado _redirects a /dist/public");
       }
@@ -22,27 +23,19 @@ const copyRedirects = () => {
 export default defineConfig({
   plugins: [
     react(),
-    runtimeErrorOverlay(),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
-      ? [
-          await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer(),
-          ),
-        ]
-      : []),
-    copyRedirects(), // <- aquí agregamos el plugin sin romper nada
+    copyRedirects()
+    // NOTA: eliminamos runtimeErrorOverlay y cartographer porque solo funcionan en Replit
   ],
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      "@": path.resolve(__dirname, "src"),
+      "@shared": path.resolve(__dirname, "../shared"),
+      "@assets": path.resolve(__dirname, "../attached_assets"),
     },
   },
-  root: path.resolve(import.meta.dirname, "client"),
+  root: path.resolve(__dirname),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(__dirname, "../dist/public"),
     emptyOutDir: true,
   },
   server: {
