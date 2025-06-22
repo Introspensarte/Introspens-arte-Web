@@ -41,9 +41,9 @@ export default function LandingPage() {
           Donde cada trazo cuenta una historia y cada palabra construye un universo.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
           <Link href="/register">
-            <Button className="btn-primary px-10 py-5 rounded-2xl text-white font-semibold text-xl min-w-[220px] shadow-2xl group">
+            <Button className="btn-primary-glow px-12 py-6 rounded-2xl text-white font-bold text-xl w-[280px] h-[70px] shadow-2xl group">
               <UserPlus className="mr-3 h-6 w-6 transition-transform group-hover:scale-110" />
               Unirse al Proyecto
             </Button>
@@ -51,7 +51,7 @@ export default function LandingPage() {
           <Link href="/login">
             <Button 
               variant="outline" 
-              className="nav-button px-10 py-5 rounded-2xl text-lavender-300 font-semibold text-xl min-w-[220px] group"
+              className="nav-button px-12 py-6 rounded-2xl text-lavender-300 font-bold text-xl w-[280px] h-[70px] group"
             >
               <LogIn className="mr-3 h-6 w-6 transition-transform group-hover:scale-110" />
               Acceder

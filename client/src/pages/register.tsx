@@ -84,7 +84,7 @@ export default function RegisterPage() {
                         <FormControl>
                           <Input 
                             placeholder="Tu nombre completo" 
-                            className="bg-dark-700 border-gray-600 text-white"
+                            className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
                             {...field} 
                           />
                         </FormControl>
@@ -102,7 +102,7 @@ export default function RegisterPage() {
                           <Input 
                             type="number" 
                             placeholder="Tu edad"
-                            className="bg-dark-700 border-gray-600 text-white"
+                            className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
                             {...field}
                             value={field.value || ""}
                             onChange={(e) => field.onChange(parseInt(e.target.value) || 18)}
@@ -124,7 +124,7 @@ export default function RegisterPage() {
                         <FormControl>
                           <Input 
                             placeholder="15/03" 
-                            className="bg-dark-700 border-gray-600 text-white"
+                            className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
                             {...field} 
                           />
                         </FormControl>
@@ -141,7 +141,7 @@ export default function RegisterPage() {
                         <FormControl>
                           <Input 
                             placeholder="Personaje o referencia visual" 
-                            className="bg-dark-700 border-gray-600 text-white"
+                            className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
                             {...field} 
                           />
                         </FormControl>
@@ -160,7 +160,7 @@ export default function RegisterPage() {
                       <FormControl>
                         <Input 
                           placeholder="#TuFirmaUnica" 
-                          className="bg-dark-700 border-gray-600 text-white"
+                          className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
                           {...field} 
                         />
                       </FormControl>
@@ -179,7 +179,7 @@ export default function RegisterPage() {
                         <Input 
                           type="url" 
                           placeholder="https://facebook.com/tu-perfil" 
-                          className="bg-dark-700 border-gray-600 text-white"
+                          className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
                           {...field} 
                         />
                       </FormControl>
@@ -197,7 +197,7 @@ export default function RegisterPage() {
                       <FormControl>
                         <Textarea 
                           placeholder="Comparte tu motivación artística..." 
-                          className="bg-dark-700 border-gray-600 text-white resize-none"
+                          className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500 resize-none"
                           rows={4}
                           {...field} 
                         />
@@ -209,10 +209,10 @@ export default function RegisterPage() {
 
                 <Button 
                   type="submit" 
-                  className="w-full btn-primary py-4 text-lg"
+                  className="w-full btn-primary-glow py-6 text-xl font-bold h-[60px]"
                   disabled={registerMutation.isPending}
                 >
-                  <Palette className="mr-2 h-5 w-5" />
+                  <Palette className="mr-3 h-6 w-6" />
                   {registerMutation.isPending ? "Creando cuenta..." : "Crear Cuenta"}
                 </Button>
               </form>

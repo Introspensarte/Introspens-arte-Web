@@ -92,7 +92,7 @@ export default function ActivityUpload({ user }: ActivityUploadProps) {
                   <FormLabel className="text-gray-300">Nombre de la Actividad</FormLabel>
                   <FormControl>
                     <Input 
-                      className="bg-dark-700 border-gray-600 text-white"
+                      className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
                       {...field} 
                     />
                   </FormControl>
@@ -109,7 +109,7 @@ export default function ActivityUpload({ user }: ActivityUploadProps) {
                   <FormControl>
                     <Input 
                       type="date"
-                      className="bg-dark-700 border-gray-600 text-white"
+                      className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
                       {...field} 
                     />
                   </FormControl>
@@ -130,8 +130,9 @@ export default function ActivityUpload({ user }: ActivityUploadProps) {
                     <Input 
                       type="number" 
                       placeholder="Número de palabras"
-                      className="bg-dark-700 border-gray-600 text-white"
+                      className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
                       {...field}
+                      value={field.value || ""}
                       onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
                     />
                   </FormControl>
@@ -148,7 +149,7 @@ export default function ActivityUpload({ user }: ActivityUploadProps) {
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger className="bg-dark-700 border-gray-600 text-white">
-                        <SelectValue placeholder="Selecciona un tipo" />
+                        <SelectValue placeholder="Selecciona un tipo" className="placeholder:text-gray-500" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent className="bg-dark-700 border-gray-600">
@@ -177,8 +178,9 @@ export default function ActivityUpload({ user }: ActivityUploadProps) {
                     <Input 
                       type="number" 
                       placeholder="Número de respuestas"
-                      className="bg-dark-700 border-gray-600 text-white"
+                      className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
                       {...field}
+                      value={field.value || ""}
                       onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
                     />
                   </FormControl>
@@ -198,7 +200,7 @@ export default function ActivityUpload({ user }: ActivityUploadProps) {
                   <Input 
                     type="url" 
                     placeholder="URL de la actividad"
-                    className="bg-dark-700 border-gray-600 text-white"
+                    className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
                     {...field} 
                   />
                 </FormControl>
@@ -215,7 +217,7 @@ export default function ActivityUpload({ user }: ActivityUploadProps) {
                 <FormLabel className="text-gray-300">Descripción Breve</FormLabel>
                 <FormControl>
                   <Textarea 
-                    className="bg-dark-700 border-gray-600 text-white resize-none"
+                    className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500 resize-none"
                     rows={4}
                     {...field} 
                   />

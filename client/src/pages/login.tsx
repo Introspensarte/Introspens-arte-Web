@@ -27,8 +27,7 @@ export default function LoginPage() {
 
   const loginMutation = useMutation({
     mutationFn: async (data: LoginData) => {
-      const response = await apiRequest("POST", "/api/login", data);
-      return response;
+      return await apiRequest("POST", "/api/login", data);
     },
     onSuccess: (data) => {
       login(data.user);
@@ -77,7 +76,7 @@ export default function LoginPage() {
                       <FormControl>
                         <Input 
                           placeholder="#TuFirma" 
-                          className="bg-dark-700 border-gray-600 text-white"
+                          className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
                           {...field} 
                         />
                       </FormControl>
@@ -88,10 +87,10 @@ export default function LoginPage() {
 
                 <Button 
                   type="submit" 
-                  className="w-full btn-primary py-4 text-lg mb-4"
+                  className="w-full btn-primary py-6 text-xl font-bold mb-4 h-[60px]"
                   disabled={loginMutation.isPending}
                 >
-                  <LogIn className="mr-2 h-5 w-5" />
+                  <LogIn className="mr-3 h-6 w-6" />
                   {loginMutation.isPending ? "Ingresando..." : "Ingresar al Portal"}
                 </Button>
 
