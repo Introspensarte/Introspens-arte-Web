@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { User, Newspaper, Megaphone, ListTodo, Upload, Trophy, Medal } from "lucide-react";
+import { User, Newspaper, Megaphone, ListTodo, Upload, Trophy, Medal, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import UserProfile from "./user-profile";
 import ActivityUpload from "./activity-upload";
