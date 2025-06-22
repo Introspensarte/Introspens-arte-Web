@@ -104,7 +104,8 @@ export default function RegisterPage() {
                             placeholder="Tu edad"
                             className="bg-dark-700 border-gray-600 text-white"
                             {...field}
-                            onChange={(e) => field.onChange(parseInt(e.target.value))}
+                            value={field.value || ""}
+                            onChange={(e) => field.onChange(parseInt(e.target.value) || 18)}
                           />
                         </FormControl>
                         <FormMessage />

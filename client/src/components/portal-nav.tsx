@@ -47,25 +47,34 @@ export default function PortalNav({ user }: PortalNavProps) {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-8">
-      <div className="grid lg:grid-cols-4 gap-8">
-        {/* Sidebar Navigation */}
+    <div className="max-w-7xl mx-auto px-6 py-12">
+      <div className="grid lg:grid-cols-4 gap-10">
+        {/* Enhanced Sidebar Navigation */}
         <div className="lg:col-span-1">
-          <div className="glass-effect rounded-2xl p-6 sticky top-24 border-gray-700">
-            <nav className="space-y-2">
+          <div className="professional-card rounded-3xl p-8 sticky top-28">
+            <div className="mb-6">
+              <h3 className="font-serif text-xl font-semibold gradient-text mb-2">Panel de Control</h3>
+              <div className="w-12 h-px bg-gradient-to-r from-lavender-400 to-transparent"></div>
+            </div>
+            <nav className="space-y-3">
               {navigationItems.map((item) => {
                 const Icon = item.icon;
+                const isActive = activeSection === item.id;
                 return (
                   <Button
                     key={item.id}
                     variant="ghost"
                     onClick={() => setActiveSection(item.id)}
-                    className={`w-full justify-start px-4 py-3 text-gray-300 hover:bg-dark-700 hover:text-lavender-400 transition-colors ${
-                      activeSection === item.id ? "bg-dark-700 text-lavender-400" : ""
+                    className={`nav-button w-full justify-start px-5 py-4 text-left rounded-xl transition-all duration-300 ${
+                      isActive 
+                        ? "bg-gradient-to-r from-lavender-500/20 to-lavender-400/10 text-lavender-300 border-lavender-400/40" 
+                        : "text-gray-400 hover:text-lavender-300"
                     }`}
                   >
-                    <Icon className="mr-3 h-4 w-4" />
-                    {item.label}
+                    <Icon className={`mr-4 h-5 w-5 transition-all duration-300 ${
+                      isActive ? "text-lavender-400 scale-110" : ""
+                    }`} />
+                    <span className="font-medium">{item.label}</span>
                   </Button>
                 );
               })}
@@ -73,9 +82,11 @@ export default function PortalNav({ user }: PortalNavProps) {
           </div>
         </div>
 
-        {/* Main Content Area */}
+        {/* Enhanced Main Content Area */}
         <div className="lg:col-span-3">
-          {renderSection()}
+          <div className="animate-fade-in">
+            {renderSection()}
+          </div>
         </div>
       </div>
     </div>

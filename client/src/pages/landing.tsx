@@ -5,42 +5,64 @@ import { UserPlus, LogIn } from "lucide-react";
 export default function LandingPage() {
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, var(--lavender-400) 0%, transparent 50%), 
-                           radial-gradient(circle at 75% 75%, hsl(245, 58%, 51%) 0%, transparent 50%)`
-        }}></div>
+      {/* Enhanced Background Pattern */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              radial-gradient(circle at 20% 20%, var(--lavender-500) 0%, transparent 40%),
+              radial-gradient(circle at 80% 80%, var(--gold-500) 0%, transparent 40%),
+              radial-gradient(circle at 40% 70%, hsl(280, 70%, 55%) 0%, transparent 35%),
+              linear-gradient(135deg, transparent 30%, rgba(139, 127, 191, 0.05) 70%)
+            `
+          }}></div>
+        </div>
+        {/* Floating particles */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-lavender-400 rounded-full animate-float opacity-60"></div>
+          <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-gold-400 rounded-full animate-float opacity-40" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-lavender-300 rounded-full animate-float opacity-50" style={{animationDelay: '4s'}}></div>
+        </div>
       </div>
       
-      <div className="text-center z-10 max-w-2xl mx-auto px-6 animate-fade-in">
-        <h1 className="font-serif text-6xl md:text-8xl font-bold mb-6 artistic-title leading-tight">
-          𝐈𝐧𝐭𝐫𝐨𝐬𝐩𝐞𝐧𝐬
-        </h1>
-        <h2 className="font-serif text-2xl md:text-3xl text-lavender-200 mb-4 italic">
-          /𝒂𝒓𝒕𝒆/
-        </h2>
-        <p className="text-gray-300 text-lg mb-12 leading-relaxed max-w-lg mx-auto">
-          Un espacio para la introspección artística y la expresión literaria. 
+      <div className="text-center z-10 max-w-4xl mx-auto px-6 animate-fade-in">
+        <div className="mb-8">
+          <h1 className="font-serif text-7xl md:text-9xl font-bold mb-6 artistic-title leading-tight tracking-tight">
+            𝐈𝐧𝐭𝐫𝐨𝐬𝐩𝐞𝐧𝐬
+          </h1>
+          <h2 className="font-serif text-3xl md:text-4xl gradient-text mb-6 italic tracking-wide">
+            /𝒂𝒓𝒕𝒆/
+          </h2>
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-lavender-400 to-transparent mx-auto mb-8"></div>
+        </div>
+        
+        <p className="text-gray-300 text-xl md:text-2xl mb-16 leading-relaxed max-w-3xl mx-auto font-light">
+          Un espacio <span className="text-lavender-300 font-medium">exclusivo</span> para la introspección artística y la expresión literaria.<br/>
           Donde cada trazo cuenta una historia y cada palabra construye un universo.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <Link href="/register">
-            <Button className="btn-primary px-8 py-4 rounded-full text-white font-medium text-lg min-w-[200px] shadow-lg">
-              <UserPlus className="mr-2 h-5 w-5" />
-              Registrarse
+            <Button className="btn-primary px-10 py-5 rounded-2xl text-white font-semibold text-xl min-w-[220px] shadow-2xl group">
+              <UserPlus className="mr-3 h-6 w-6 transition-transform group-hover:scale-110" />
+              Unirse al Proyecto
             </Button>
           </Link>
           <Link href="/login">
             <Button 
               variant="outline" 
-              className="border-lavender-400 hover:bg-lavender-400 hover:text-dark-900 px-8 py-4 rounded-full text-lavender-400 font-medium text-lg min-w-[200px] transition-all duration-300"
+              className="nav-button px-10 py-5 rounded-2xl text-lavender-300 font-semibold text-xl min-w-[220px] group"
             >
-              <LogIn className="mr-2 h-5 w-5" />
-              Iniciar Sesión
+              <LogIn className="mr-3 h-6 w-6 transition-transform group-hover:scale-110" />
+              Acceder
             </Button>
           </Link>
+        </div>
+        
+        <div className="mt-16 text-center">
+          <p className="text-gray-500 text-sm font-light tracking-wide">
+            Una comunidad de escritores y artistas
+          </p>
         </div>
       </div>
     </div>
