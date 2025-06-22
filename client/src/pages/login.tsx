@@ -27,15 +27,25 @@ export default function LoginPage() {
 
   const loginMutation = useMutation({
     mutationFn: async (data: LoginData) => {
-      return await apiRequest("POST", "/api/login", data);
+      const response = await apiRequest("POST", "/api/login", data);
+      return await response.json();
     },
     onSuccess: (data) => {
-      login(data.user);
-      toast({
-        title: "¡Bienvenido de vuelta!",
-        description: `Hola ${data.user.fullName}`,
-      });
-      setLocation("/portal");
+      console.log('Login response:', data);
+      if (data && data.user) {
+        login(data.user);
+        toast({
+          title: "¡Bienvenido de vuelta!",
+          description: `Hola ${data.user.fullName}`,
+        });
+        setLocation("/portal");
+      } else {
+        toast({
+          title: "Error de login",
+          description: "Respuesta del servidor incorrecta",
+          variant: "destructive",
+        });
+      }
     },
     onError: (error: any) => {
       toast({

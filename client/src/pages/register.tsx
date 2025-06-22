@@ -33,9 +33,11 @@ export default function RegisterPage() {
 
   const registerMutation = useMutation({
     mutationFn: async (data: InsertUser) => {
-      return await apiRequest("POST", "/api/register", data);
+      const response = await apiRequest("POST", "/api/register", data);
+      return await response.json();
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
+      console.log('Register response:', data);
       toast({
         title: "¡Registro exitoso!",
         description: "Tu cuenta ha sido creada. Ahora puedes iniciar sesión.",
