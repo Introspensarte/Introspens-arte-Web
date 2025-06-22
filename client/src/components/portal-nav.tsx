@@ -23,6 +23,7 @@ export default function PortalNav({ user }: PortalNavProps) {
     { id: "upload", label: "Sube tu Actividad", icon: Upload },
     { id: "ranking-traces", label: "Ranking Trazos", icon: Trophy },
     { id: "ranking-words", label: "Ranking Palabras", icon: Medal },
+    ...(user.isAdmin ? [{ id: "admin", label: "Panel Admin", icon: Crown }] : []),
   ];
 
   const renderSection = () => {
@@ -41,6 +42,8 @@ export default function PortalNav({ user }: PortalNavProps) {
         return <NewsSection type="announcements" user={user} />;
       case "activities":
         return <AdminContent type="activities" user={user} />;
+      case "admin":
+        return <PortalAdminPage />;
       default:
         return <UserProfile user={user} />;
     }

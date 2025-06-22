@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Trophy, Medal, Crown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Trophy, Medal, Crown, Eye } from "lucide-react";
+import UserProfileModal from "./user-profile-modal";
 import type { User } from "@shared/schema";
 
 interface RankingsProps {
@@ -10,9 +13,17 @@ interface RankingsProps {
 }
 
 export default function Rankings({ type, user }: RankingsProps) {
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const { data: rankings, isLoading } = useQuery({
     queryKey: [`/api/rankings/${type}`],
   });
+
+  const handleViewProfile = (rankedUser: User) => {
+    setSelectedUser(rankedUser);
+    setIsModalOpen(true);
+  };
 
   const title = type === "traces" ? "Ranking Global - Trazos" : "Ranking Global - Palabras";
   const statKey = type === "traces" ? "totalTraces" : "totalWords";
@@ -108,13 +119,23 @@ export default function Rankings({ type, user }: RankingsProps) {
                       <div className="text-sm text-lavender-400">{rankedUser.signature}</div>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <div className={`text-2xl font-bold ${
-                      type === "traces" ? "text-green-400" : "text-blue-400"
-                    }`}>
-                      {rankedUser[statKey].toLocaleString()}
+                  <div className="flex items-center space-x-3 flex-shrink-0">
+                    <div className="text-right">
+                      <div className={`text-xl md:text-2xl font-bold ${
+                        type === "traces" ? "text-green-400" : "text-blue-400"
+                      }`}>
+                        {rankedUser[statKey].toLocaleString()}
+                      </div>
+                      <div className="text-sm text-gray-400">{statLabel}</div>
                     </div>
-                    <div className="text-sm text-gray-400">{statLabel}</div>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="text-gray-300 border-gray-600 hover:bg-gray-700"
+                      onClick={() => handleViewProfile(rankedUser)}
+                    >
+                      <Eye className="h-4 w-4" />
+                    </Button>
                   </div>
                 </div>
               </CardContent>
@@ -131,6 +152,15 @@ export default function Rankings({ type, user }: RankingsProps) {
           </CardContent>
         </Card>
       )}
+
+      <UserProfileModal 
+        user={selectedUser}
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSelectedUser(null);
+        }}
+      />
     </div>
   );
 }

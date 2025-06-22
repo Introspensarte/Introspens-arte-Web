@@ -27,12 +27,9 @@ export default function LandingPage() {
       
       <div className="text-center z-10 max-w-4xl mx-auto px-6 animate-fade-in">
         <div className="mb-8">
-          <h1 className="font-serif text-7xl md:text-9xl font-bold mb-6 artistic-title leading-tight tracking-tight">
-            𝐈𝐧𝐭𝐫𝐨𝐬𝐩𝐞𝐧𝐬
+          <h1 className="font-serif text-6xl md:text-8xl font-bold mb-6 artistic-title leading-tight tracking-tight">
+            𝐈𝐧𝐭𝐫𝐨𝐬𝐩𝐞𝐧𝐬<span className="text-3xl md:text-4xl gradient-text italic">/𝒂𝒓𝒕𝒆/</span>
           </h1>
-          <h2 className="font-serif text-3xl md:text-4xl gradient-text mb-6 italic tracking-wide">
-            /𝒂𝒓𝒕𝒆/
-          </h2>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-lavender-400 to-transparent mx-auto mb-8"></div>
         </div>
         
