@@ -6,6 +6,8 @@ import ActivityUpload from "./activity-upload";
 import Rankings from "./rankings";
 import NewsSection from "./news-section";
 import AdminContent from "./admin-content";
+import PortalAdminPage from "../pages/portal-admin";
+import ActivitiesStructure from "./activities-structure";
 import type { User as UserType } from "@shared/schema";
 
 interface PortalNavProps {
@@ -41,7 +43,7 @@ export default function PortalNav({ user }: PortalNavProps) {
       case "announcements":
         return <NewsSection type="announcements" user={user} />;
       case "activities":
-        return <AdminContent type="activities" user={user} />;
+        return <ActivitiesStructure user={user} />;
       case "admin":
         return <PortalAdminPage />;
       default:
