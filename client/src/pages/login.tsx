@@ -38,7 +38,10 @@ export default function LoginPage() {
           title: "¡Bienvenido de vuelta!",
           description: `Hola ${data.user.fullName}`,
         });
-        setLocation("/portal");
+        // Force navigation after user is set
+        setTimeout(() => {
+          window.location.href = "/portal";
+        }, 500);
       } else {
         toast({
           title: "Error de login",

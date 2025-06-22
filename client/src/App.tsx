@@ -1,9 +1,9 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Redirect } from "wouter";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { AuthProvider } from "./hooks/use-auth";
+import { AuthProvider, useAuth } from "./hooks/use-auth";
 
 import LandingPage from "@/pages/landing";
 import RegisterPage from "@/pages/register";
@@ -12,12 +12,21 @@ import PortalPage from "@/pages/portal";
 import NotFound from "@/pages/not-found";
 
 function Router() {
+  const { user } = useAuth();
+  console.log('Router - current user:', user);
+
   return (
     <Switch>
       <Route path="/" component={LandingPage} />
-      <Route path="/register" component={RegisterPage} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/portal" component={PortalPage} />
+      <Route path="/login">
+        {user ? <Redirect to="/portal" /> : <LoginPage />}
+      </Route>
+      <Route path="/register">
+        {user ? <Redirect to="/portal" /> : <RegisterPage />}
+      </Route>
+      <Route path="/portal">
+        {user ? <PortalPage /> : <Redirect to="/login" />}
+      </Route>
       <Route component={NotFound} />
     </Switch>
   );

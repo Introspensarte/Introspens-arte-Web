@@ -24,6 +24,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const login = (userData: User) => {
+    console.log('Setting user in auth context:', userData);
     setUser(userData);
     localStorage.setItem("introspens_user", JSON.stringify(userData));
   };
