@@ -84,7 +84,12 @@ export default function RegisterPage() {
                         <FormControl>
                           <Input 
                             placeholder="Tu nombre completo" 
-                            className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
+                            className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-lavender-400 focus:ring-lavender-400"
+                            style={{
+                              backgroundColor: 'hsl(240, 8%, 12%)',
+                              color: 'white',
+                              borderColor: 'hsl(240, 6%, 16%)'
+                            }}
                             {...field} 
                           />
                         </FormControl>
@@ -102,7 +107,12 @@ export default function RegisterPage() {
                           <Input 
                             type="number" 
                             placeholder="Tu edad"
-                            className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
+                            className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-lavender-400 focus:ring-lavender-400"
+                            style={{
+                              backgroundColor: 'hsl(240, 8%, 12%)',
+                              color: 'white',
+                              borderColor: 'hsl(240, 6%, 16%)'
+                            }}
                             {...field}
                             value={field.value || ""}
                             onChange={(e) => field.onChange(parseInt(e.target.value) || 18)}
@@ -124,7 +134,12 @@ export default function RegisterPage() {
                         <FormControl>
                           <Input 
                             placeholder="15/03" 
-                            className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
+                            className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-lavender-400 focus:ring-lavender-400"
+                            style={{
+                              backgroundColor: 'hsl(240, 8%, 12%)',
+                              color: 'white',
+                              borderColor: 'hsl(240, 6%, 16%)'
+                            }}
                             {...field} 
                           />
                         </FormControl>
@@ -141,7 +156,12 @@ export default function RegisterPage() {
                         <FormControl>
                           <Input 
                             placeholder="Personaje o referencia visual" 
-                            className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
+                            className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-lavender-400 focus:ring-lavender-400"
+                            style={{
+                              backgroundColor: 'hsl(240, 8%, 12%)',
+                              color: 'white',
+                              borderColor: 'hsl(240, 6%, 16%)'
+                            }}
                             {...field} 
                           />
                         </FormControl>
@@ -160,7 +180,12 @@ export default function RegisterPage() {
                       <FormControl>
                         <Input 
                           placeholder="#TuFirmaUnica" 
-                          className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
+                          className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-lavender-400 focus:ring-lavender-400"
+                          style={{
+                            backgroundColor: 'hsl(240, 8%, 12%)',
+                            color: 'white',
+                            borderColor: 'hsl(240, 6%, 16%)'
+                          }}
                           {...field} 
                         />
                       </FormControl>
@@ -179,7 +204,12 @@ export default function RegisterPage() {
                         <Input 
                           type="url" 
                           placeholder="https://facebook.com/tu-perfil" 
-                          className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
+                          className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-lavender-400 focus:ring-lavender-400"
+                          style={{
+                            backgroundColor: 'hsl(240, 8%, 12%)',
+                            color: 'white',
+                            borderColor: 'hsl(240, 6%, 16%)'
+                          }}
                           {...field} 
                         />
                       </FormControl>
@@ -197,7 +227,12 @@ export default function RegisterPage() {
                       <FormControl>
                         <Textarea 
                           placeholder="Comparte tu motivación artística..." 
-                          className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500 resize-none"
+                          className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-lavender-400 focus:ring-lavender-400 resize-none"
+                          style={{
+                            backgroundColor: 'hsl(240, 8%, 12%)',
+                            color: 'white',
+                            borderColor: 'hsl(240, 6%, 16%)'
+                          }}
                           rows={4}
                           {...field} 
                         />

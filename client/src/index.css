@@ -256,6 +256,53 @@
       rgba(45, 42, 70, 0.2) 100%);
     border-color: rgba(139, 127, 191, 0.3);
   }
+
+  /* Fix input field visibility */
+  input[type="text"],
+  input[type="number"], 
+  input[type="url"],
+  input[type="date"],
+  textarea {
+    color: white !important;
+    background-color: hsl(240, 8%, 12%) !important;
+  }
+
+  input[type="text"]:focus,
+  input[type="number"]:focus, 
+  input[type="url"]:focus,
+  input[type="date"]:focus,
+  textarea:focus {
+    color: white !important;
+    background-color: hsl(240, 8%, 14%) !important;
+    border-color: hsl(263, 70%, 65%) !important;
+    box-shadow: 0 0 0 1px hsl(263, 70%, 65%) !important;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: hsl(240, 5%, 50%) !important;
+    opacity: 1 !important;
+  }
+
+  /* Select dropdown fixes */
+  .select-trigger {
+    color: white !important;
+    background-color: hsl(240, 8%, 12%) !important;
+  }
+
+  .select-content {
+    color: white !important;
+    background-color: hsl(240, 8%, 12%) !important;
+    border-color: hsl(240, 6%, 16%) !important;
+  }
+
+  .select-item {
+    color: white !important;
+  }
+
+  .select-item:hover {
+    background-color: hsl(240, 6%, 16%) !important;
+  }
 }
 
 /* Custom scrollbar for dark theme */

@@ -76,7 +76,12 @@ export default function LoginPage() {
                       <FormControl>
                         <Input 
                           placeholder="#TuFirma" 
-                          className="bg-dark-700 border-gray-600 text-white placeholder:text-gray-500"
+                          className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-lavender-400 focus:ring-lavender-400"
+                          style={{
+                            backgroundColor: 'hsl(240, 8%, 12%)',
+                            color: 'white',
+                            borderColor: 'hsl(240, 6%, 16%)'
+                          }}
                           {...field} 
                         />
                       </FormControl>
